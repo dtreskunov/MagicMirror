@@ -1,0 +1,7 @@
+[Unit]
+Description=MagicMirror NodeJs Backend
+
+[Service]
+WorkingDirectory=%h/MagicMirror
+ExecStart=node serveronly
+

@@ -1,0 +1,13 @@
+# SystemD service to launch MagicMirror frontend upon startup
+# Install by running:
+# ln -s `readlink -f <path to this file>` ~/.config/systemd/user/
+# echo '@systemctl --user start mm-browser' >> ~/.config/lxsession/LXDE/autostart
+
+[Unit]
+Description=MagicMirror Chromium Kiosk
+Requires=mm-server.service
+
+[Service]
+Environment="URL=http://localhost:8080"
+ExecStart=%h/MagicMirror/mm-browser.sh
+
