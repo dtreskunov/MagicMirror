@@ -6,8 +6,10 @@
 [Unit]
 Description=MagicMirror Chromium Kiosk
 Requires=mm-server.service
+Wants=mm-browser-refresh.timer
 
 [Service]
 Environment="URL=http://localhost:8080"
 ExecStart=%h/MagicMirror/mm-browser.sh
+ExecReload=%h/MagicMirror/refresh.sh
 
