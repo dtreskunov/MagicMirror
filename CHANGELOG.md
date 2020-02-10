@@ -3,25 +3,38 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-❤️ **Donate:** Enjoying MagicMirror²? [Please consider a donation!](https://magicmirror.builders/donate) With your help we can continue to improve the MagicMirror² core.
+❤️ **Donate:** Enjoying MagicMirror²? [Please consider a donation!](https://magicmirror.builders/donate) With your help we can continue to improve the MagicMirror²
 
 ## [2.11.0] - Unreleased (Develop Branch)
 
 *This release is scheduled to be released on 2020-04-01.*
 
 ### Deleted
-- cleanup installers folder, remove externalized scripts
+- Remove installers.
+- Remove externalized scripts.
 
 ### Added
+- Ukrainian translation.
 - Finnish translation for "PRECIP", "UPDATE_INFO_MULTIPLE" and "UPDATE_INFO_SINGLE".
-- Sun and Moon data to the `clock` module.
+- Added the ability to hide the temp label and weather icon in the `currentweather` module to allow showing only information such as wind and sunset/rise.
+- The `clock` module now optionally displays sun and moon data, including rise/set times, remaining daylight, and percent of moon illumination.
+- Added Hebrew translation.
+- Add HTTPS support and update config.js.sample
+
 
 ### Fixed
 - Force declaration of public ip adress in config file (ISSUE #1852)
 - Fixes `run-start.sh`: If running in docker-container, don't check the environment, just start electron (ISSUE #1859)
+- Fix calendar time offset for recurring events crossing Daylight Savings Time (ISSUE #1798)
+- Fix regression in currentweather module causing 'undefined' to show up when config.hideTemp is false
 
 ### Updated
 - Remove documentation from core repository and link to new dedicated docs site: [docs.magicmirror.builders](https://docs.magicmirror.builders).
+- Updated config.js.sample: Corrected some grammar on `config.js.sample` comment section.
+- Removed `run-start.sh` script and update start commands:
+  - To start using electron, use `npm run start`.
+  - To start in server only mode, use `npm run server`.
+- Timestamp in log output now also contains the date
 
 ## [2.10.1] - 2020-01-10
 

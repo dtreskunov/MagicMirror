@@ -44,6 +44,7 @@ Module.register("currentweather",{
 		calendarClass: "calendar",
 
 		onlyTemp: false,
+		hideTemp: false,
 		roundTemp: false,
 
 		iconTable: {
@@ -194,10 +195,6 @@ Module.register("currentweather",{
 		var large = document.createElement("div");
 		large.className = "large light";
 
-		var weatherIcon = document.createElement("span");
-		weatherIcon.className = "wi weathericon " + this.weatherType;
-		large.appendChild(weatherIcon);
-
 		var degreeLabel = "";
 		if (this.config.units === "metric" || this.config.units === "imperial") {
 			degreeLabel += "°";
@@ -220,10 +217,16 @@ Module.register("currentweather",{
 			this.config.decimalSymbol = ".";
 		}
 
-		var temperature = document.createElement("span");
-		temperature.className = "bright";
-		temperature.innerHTML = " " + this.temperature.replace(".", this.config.decimalSymbol) + degreeLabel;
-		large.appendChild(temperature);
+		if (this.config.hideTemp === false) {
+			var weatherIcon = document.createElement("span");
+			weatherIcon.className = "wi weathericon " + this.weatherType;
+			large.appendChild(weatherIcon);
+
+			var temperature = document.createElement("span");
+			temperature.className = "bright";
+			temperature.innerHTML = " " + this.temperature.replace(".", this.config.decimalSymbol) + degreeLabel;
+			large.appendChild(temperature);
+		}
 
 		if (this.config.showIndoorTemperature && this.indoorTemperature) {
 			var indoorIcon = document.createElement("span");

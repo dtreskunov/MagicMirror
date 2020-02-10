@@ -4,7 +4,6 @@
  * By Michael Teeuw http://michaelteeuw.nl
  * MIT Licensed.
  */
-
 var fs = require("fs");
 var Server = require(__dirname + "/server.js");
 var Utils = require(__dirname + "/utils.js");
@@ -15,7 +14,7 @@ var path = require("path");
 require("module-alias/register");
 
 // add timestamps in front of log messages
-require("console-stamp")(console, "HH:MM:ss.l");
+require("console-stamp")(console, "yyyy-mm-dd HH:MM:ss.l");
 
 // Get version number.
 global.version = JSON.parse(fs.readFileSync("package.json", "utf8")).version;
