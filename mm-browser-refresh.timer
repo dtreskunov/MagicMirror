@@ -1,0 +1,16 @@
+# SystemD service to refresh MagicMirror frontend
+# Install by running:
+# ln -s `readlink -f <path to this file>` ~/.config/systemd/user/
+# echo '@systemctl --user start mm-browser-refresh.timer' >> ~/.config/lxsession/LXDE/autostart
+
+[Unit]
+Description=MagicMirror Chromium refresh timer
+PartOf=mm-browser-refresh.service mm-browser.service
+Requires=mm-browser-refresh.service
+
+[Timer]
+OnUnitActiveSec=1d 
+
+[Install]
+WantedBy=timers.target
+
